@@ -4,12 +4,20 @@
   "description": "Like WebStudio, but surrounded by Electrons. Aimed to be the in-studio front end for BAPSicle.",
   "main": "app.js",
   "scripts": {
-    "start": "electron-forge start",
+    "webstudio-install": "cd WebStudio && yarn",
+    "start": "npm run webstudio-install && concurrently \"cd WebStudio && BROWSER=none yarn start\" \"wait-on http://localhost:13502 && electron-forge start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "(rm -r webstudio-build || true) && cd WebStudio && yarn build && cp -r build ../webstudio-build && cd ../ && electron-forge make"
   },
-  "keywords": ["BAPS", "BAPSicle", "Audio", "Playout", "WebStudio", "Electron"],
+  "keywords": [
+    "BAPS",
+    "BAPSicle",
+    "Audio",
+    "Playout",
+    "WebStudio",
+    "Electron"
+  ],
   "author": "Unversity Radio York",
   "license": "",
   "devDependencies": {
@@ -21,16 +29,22 @@
     "electron": "^12.0.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "concurrently": "^6.0.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "wait-on": "^5.3.0"
   },
+  "homepage": "./",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "ignore": "WebStudio/"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "src"
+            "name": "neutron-studio"
           }
         },
         {
