@@ -38,7 +38,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "ignore": "WebStudio/"
+        "ignore": [ "WebStudio/", "/.psd/"],
+        "icon": "resources/logo/baps3-small"
       },
       "makers": [
         {
