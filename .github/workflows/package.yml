@@ -1,0 +1,33 @@
+name: Build Packages
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+
+  mac:
+    # Name the Job
+    name: MacOS
+    # Set the type of machine to run on
+    runs-on: macos-latest
+
+    # Runs the Super-Linter action
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 15.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm run make --if-present
+    - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: mac
+          path: |
+            out/*darwin*/
