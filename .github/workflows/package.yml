@@ -26,8 +26,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm run make --if-present
     - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: mac
-          path: |
-            out/*darwin*/
+      uses: actions/upload-artifact@v2
+      with:
+        name: mac
+        path: |
+          out/*darwin*/
