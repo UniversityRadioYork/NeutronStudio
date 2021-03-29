@@ -4,7 +4,7 @@
   "description": "Like WebStudio, but surrounded by Electrons. Aimed to be the in-studio front end for BAPSicle.",
   "main": "app.js",
   "scripts": {
-    "webstudio-install": "cd WebStudio && yarn",
+    "webstudio-install": "cd WebStudio && git submodule update --init && yarn",
     "start": "npm run webstudio-install && concurrently \"cd WebStudio && BROWSER=none yarn start\" \"wait-on http://localhost:13502 && electron-forge start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
