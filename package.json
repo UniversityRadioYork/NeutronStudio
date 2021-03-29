@@ -8,7 +8,7 @@
     "start": "npm run webstudio-install && concurrently \"cd WebStudio && BROWSER=none yarn start\" \"wait-on http://localhost:13502 && electron-forge start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "(rm -r webstudio-build || true) && cd WebStudio && yarn build && cp -r build ../webstudio-build && cd ../ && electron-forge make"
+    "make": "npm run webstudio-install && (rm -r webstudio-build || true) && cd WebStudio && yarn build && cp -r build ../webstudio-build && cd ../ && electron-forge make"
   },
   "keywords": [
     "BAPS",
