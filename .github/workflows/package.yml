@@ -30,4 +30,4 @@ jobs:
       with:
         name: mac
         path: |
-          out/*darwin*/
+          out/make/zip/darwin/x64/*.zip
