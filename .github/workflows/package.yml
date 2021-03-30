@@ -47,13 +47,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-  - run: npm run make
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: Ubuntu .deb
-        path: |
-          out/*/*.deb
+    - run: npm run make
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Ubuntu .deb
+          path: |
+            out/*/*.deb
 
   win:
     # Name the Job
