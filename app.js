@@ -1,27 +1,38 @@
 const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const path = require('path');
+const {store} = require('./store');
 
 isDev = require('electron-is-dev');
+if (isDev) {
+  require('electron-reloader')(module)
+}
 
 function createWindow () {
-  const mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+  let win = new BrowserWindow({
+    width: store.get('width'),
+    height: store.get('height'),
+    show: false,
     webPreferences: {
-      //preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
     }
   })
-  if (isDev) {
-    const appUrl = "http://localhost:13502";
-    mainWindow.loadURL(appUrl);
-  } else {
-    mainWindow.loadFile('webstudio-build/index.html');
-  }
+  win.loadFile('ui/index.html');
+  win.on('closed', () => win = null)
+  win.once('ready-to-show', () => {
+    win.show();
+    if (isDev) win.webContents.openDevTools();
+  });
 
-  mainWindow.maximize()
-  mainWindow.on('closed', () => delete mainWindow)
-
-  //win.loadFile('index.html')
+  // The BrowserWindow class extends the node.js core EventEmitter class, so we use that API
+  // to listen to events on the BrowserWindow. The resize event is emitted when the window size changes.
+  win.on('resize', () => {
+    // The event doesn't pass us the window size, so we call the `getBounds` method which returns an object with
+    // the height, width, and x and y coordinates.
+    let { width, height } = win.getBounds();
+    // Now that we have them, save them using the `set` method.
+    store.set('width', width);
+    store.set('height', height);
+  });
 }
 
 app.whenReady().then(() => {

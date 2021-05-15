@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>BAPS3 Presenter</title>
+
+  <!-- Custom styles for this template-->
+  <link href="./static/css/sb-admin-2.css" rel="stylesheet">
+  <link href="./static/css/neutron.css" rel="stylesheet">
+
+</head>
+
+
+<body id="body" class="bg-gradient-primary disconnected">
+  <iframe id="connected" src="">
+  </iframe>
+  <div id="disconnected" class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-md-9 col-12">
+        <div class="mt-5">
+          <div class="header text-center">
+            <img class="logo img-fluid mb-4" src="../resources/logo/baps3.png">
+            <h1 class="h1 text-light">BAPS3 Presenter</h1>
+          </div>
+          <div class="card o-hidden border-0 shadow-lg my-3">
+              <div class="card-body p-0">
+                <div class="pt-3">
+                  <div class="text-center">
+                    <h2 class="h3 text-gray-900">Server Select</h2>
+                  </div>
+                  <hr>
+                </div>
+                <div class="px-3 pb-4">
+                  <div id="serverList" class="list-group text-left">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Studio Red</h5>
+                        <small>studio1.ury.york.ac.uk</small>
+                      </div>
+
+                      <small>This server is selected, but is not responding.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Studio Blue</h5>
+                        <small>studio2.ury.york.ac.uk</small>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                Electron: v<span id="electron-version"></span> |
+                Node: v<span id="node-version"></span> |
+                Chrome: v<span id="chrome-version"></span>
+                <button id="settingsButton" class="float-right btn btn-outline-primary">Settings</button>
+              </footer>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>

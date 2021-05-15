@@ -4,11 +4,10 @@
   "description": "Like WebStudio, but surrounded by Electrons. Aimed to be the in-studio front end for BAPSicle.",
   "main": "app.js",
   "scripts": {
-    "webstudio-install": "cd WebStudio && git submodule update --init && yarn --network-timeout 100000",
-    "start": "npm run webstudio-install && concurrently \"cd WebStudio && BROWSER=none yarn start\" \"wait-on http://localhost:13502 && electron-forge start\"",
+    "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "npm run webstudio-install && (rm -r webstudio-build || true) && cd WebStudio && yarn build && cp -r build ../webstudio-build && cd ../ && npm install && electron-forge make"
+    "make": "npm install && electron-forge make"
   },
   "keywords": [
     "BAPS",
@@ -26,19 +25,24 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^12.0.2"
+    "electron": "^12.0.7",
+    "electron-reloader": "^1.2.1"
   },
   "dependencies": {
-    "concurrently": "^6.0.0",
+    "concurrently": "^6.1.0",
     "electron-is-dev": "^2.0.0",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.0",
     "wait-on": "^5.3.0"
   },
   "homepage": "./",
   "config": {
     "forge": {
       "packagerConfig": {
-        "ignore": [ "WebStudio/", "/.psd/"],
+        "ignore": [
+          "/.psd/"
+        ],
+        "name": "BAPS3 Presenter",
         "icon": "resources/logo/baps3-small"
       },
       "makers": [

@@ -1,0 +1,21 @@
+.logo {
+  max-width: 30%;
+}
+footer {
+  color: #bbb;
+}
+#connected {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  border: none;
+
+}
+#disconnected, #connected {
+  display: none;
+}
+
+.disconnected #disconnected, .connected #connected {
+  display: block;
+}
