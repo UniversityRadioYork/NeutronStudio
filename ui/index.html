@@ -12,13 +12,15 @@
   <!-- Custom styles for this template-->
   <link href="./static/css/sb-admin-2.css" rel="stylesheet">
   <link href="./static/css/neutron.css" rel="stylesheet">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+  <script src="neutron.js"></script>
 
 </head>
 
 
 <body id="body" class="bg-gradient-primary disconnected">
-  <iframe id="connected" src="">
-  </iframe>
+  <iframe id="connected" src="#"></iframe>
   <div id="disconnected" class="container">
 
     <!-- Outer Row -->
@@ -40,20 +42,7 @@
                 </div>
                 <div class="px-3 pb-4">
                   <div id="serverList" class="list-group text-left">
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Studio Red</h5>
-                        <small>studio1.ury.york.ac.uk</small>
-                      </div>
-
-                      <small>This server is selected, but is not responding.</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                      <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Studio Blue</h5>
-                        <small>studio2.ury.york.ac.uk</small>
-                      </div>
-                    </a>
+                    <p class="text-center">Loading Failed :/</p>
                   </div>
                 </div>
               </div>

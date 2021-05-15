@@ -17,7 +17,6 @@ function createWindow () {
     }
   })
   win.loadFile('ui/index.html');
-  win.on('closed', () => win = null)
   win.once('ready-to-show', () => {
     win.show();
     if (isDev) win.webContents.openDevTools();
