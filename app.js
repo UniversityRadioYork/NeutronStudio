@@ -19,6 +19,7 @@ function createWindow () {
   win.loadFile('ui/index.html');
   win.once('ready-to-show', () => {
     win.show();
+    win.removeMenu();
     if (isDev) win.webContents.openDevTools();
   });
 
