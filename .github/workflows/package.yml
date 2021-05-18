@@ -47,7 +47,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm run make
+    - run: npm run make && ls out && ls out/*-x64
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
