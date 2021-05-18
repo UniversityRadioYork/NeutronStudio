@@ -78,4 +78,4 @@ jobs:
       with:
         name: Windows .exe
         path: |
-          out/*/*.exe
+          out\make\squirrel.windows\x64\*
