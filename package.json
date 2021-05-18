@@ -60,7 +60,9 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "name": "neutron-studio"
+          }
         }
       ]
     }
