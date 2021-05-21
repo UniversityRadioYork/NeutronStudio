@@ -33,6 +33,12 @@ function createWindow () {
     store.set('width', width);
     store.set('height', height);
   });
+
+  win.on("close", (e) => {
+    e.preventDefault();
+    win.destroy();
+  });
+  
 }
 
 app.whenReady().then(() => {
