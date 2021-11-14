@@ -43,7 +43,8 @@
           "/.psd/"
         ],
         "name": "BAPS3 Presenter",
-        "icon": "resources/logo/baps3-small"
+        "icon": "resources/logo/baps3-small",
+        "executableName": "neutron-studio"
       },
       "makers": [
         {
