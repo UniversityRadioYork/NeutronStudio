@@ -53,7 +53,7 @@ jobs:
       with:
         name: Ubuntu .deb
         path: |
-          out/*/*.deb
+          out/make/deb/x64/*.deb
 
   win:
     # Name the Job
