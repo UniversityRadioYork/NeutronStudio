@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
     # Runs the Super-Linter action
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
 
     steps:
     - uses: actions/checkout@v2
